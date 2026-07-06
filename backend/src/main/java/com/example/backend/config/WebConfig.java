@@ -10,9 +10,8 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**") // Áp dụng cho tất cả các endpoint
-                .allowedOrigins("http://localhost:5173") // Chỉ cho phép frontend từ port 5173
+                .allowedOrigins("*") // Cho phép mọi domain (Vercel, localhost, v.v.)
                 .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS") // Các method được phép
-                .allowedHeaders("*") // Chấp nhận tất cả các headers
-                .allowCredentials(true); // Cho phép gửi credentials (cookies, v.v.)
+                .allowedHeaders("*"); // Chấp nhận tất cả các headers
     }
 }
